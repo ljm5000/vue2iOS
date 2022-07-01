@@ -1,5 +1,6 @@
 <template>
   <div>123</div>
+  <div @click="goToB">Page A</div>
   <div>{{ msg }}</div>
   <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App" />
@@ -8,12 +9,28 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import Request from './components/Request'
+import { useRouter } from "vue-router";
 //  function sendMsg(){
 //       window.webkit.messageHandlers.getDataFormVue.postMessage({
 //         title: "this.money", //vue给iOS传值
 //     });
 //     }
 export default {
+  setup() {
+    const router = useRouter();
+    const goToB = () => {
+      console.error("gotu")
+      router.push({
+         name: "AppT",
+         params: {
+          value: "abcde",
+        },
+      });
+    };
+    return {
+      goToB,
+    };
+  },
   name: 'App',
   components: {
     HelloWorld

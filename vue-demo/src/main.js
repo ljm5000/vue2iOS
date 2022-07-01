@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import router from './router'
 window.APPBridges = {
     __callbackCollections__: {},
     usePromise: true,
@@ -29,4 +30,4 @@ window.APPBridges = {
     }
     window.webkit.messageHandlers.webToNative.postMessage(message);
   };
-createApp(App).mount('#app')
+createApp(App).use(router).mount('#app')
